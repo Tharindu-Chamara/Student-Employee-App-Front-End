@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-manage-emp',
@@ -28,6 +29,11 @@ export class ManageEmpComponent {
         console.log(data)
       }
     )
+    Swal.fire({
+      title: "Employee Add Successf!",
+      text: "You clicked the button!",
+      icon: "success"
+    });
   }
 
 }
