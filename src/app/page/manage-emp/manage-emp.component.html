@@ -1,0 +1,53 @@
+<div class="container m-5 ">
+  <div class="row col-lg-12 col-md-12">
+    <h1 class="text-center mb-3 bg-info p-3 text-white fw-bolder ml-3">Add Employee</h1>
+  </div>
+  <div class="row col-md-12 col-lg-12 col-sm-8">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      </div>
+      <input type="text" class="form-control" placeholder="First Name" aria-label="First Name"
+        [(ngModel)]="employeeObj.firstname" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      </div>
+      <input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name"
+        [(ngModel)]='employeeObj.lastname' aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Enter your Email" aria-label="Recipient's username"
+        [(ngModel)]='employeeObj.email' aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">.com</span>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <label for="departmentId" class="form-label">Department Id</label>
+      <select class="form-select" id="departmentId" [(ngModel)]="employeeObj.departmentId">
+        <option selected>Choose...</option>
+        <option value="1">Department 1</option>
+        <option value="2">Department 2</option>
+        <option value="3">Department 3</option>
+      </select>
+    </div>
+
+    <div class="mb-2">
+      <label for="departmentId" class="form-label"> Role Id</label>
+      <select class="form-select" id="departmentId" [(ngModel)]="employeeObj.roleId">
+        <option selected>Choose...</option>
+        <option value="1">Role 1</option>
+        <option value="2">Role 2</option>
+        <option value="3">Role 3</option>
+      </select>
+    </div>
+
+    <div>
+      <button type="button" class="btn btn-success mt-3" (click)="addEmployee()">Add Employee</button>
+    </div>
+
+  </div>
+</div>
