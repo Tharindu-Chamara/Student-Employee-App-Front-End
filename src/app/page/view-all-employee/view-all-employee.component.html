@@ -1,0 +1,24 @@
+<div class="row">
+  <h1 class="text-center bg-info  p-3"> View All Employee!</h1>
+</div>
+
+<div class="container bg-grey">
+  <div class="row">
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Role</th>
+      </tr>
+      <tr *ngFor="let data of employeeList"> 
+        <td>{{data.id}}</td>
+        <td>{{data.firstname+" "+data.lastname}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.departmentId}}</td>
+        <td>{{data.roleId}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
