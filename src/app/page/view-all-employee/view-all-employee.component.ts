@@ -3,11 +3,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { NavComponent } from "../../commen/nav/nav.component";
 
 @Component({
   selector: 'app-view-all-employee',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, FormsModule,],
+  imports: [HttpClientModule, CommonModule, FormsModule, NavComponent],
   templateUrl: './view-all-employee.component.html',
   styleUrl: './view-all-employee.component.css'
 })
