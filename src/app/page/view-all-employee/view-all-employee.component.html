@@ -4,20 +4,24 @@
 
 <div class="container bg-grey">
   <div class="row">
-    <table>
-      <tr>
+    <table class="table border">
+      <tr class="table border bg-black text-center text-white">
+        <th>Count</th>
         <th>Id</th>
         <th>Name</th>
         <th>Email</th>
         <th>Department</th>
         <th>Role</th>
+        <th>Delete</th>
       </tr>
-      <tr *ngFor="let data of employeeList"> 
+      <tr *ngFor="let data of employeeList;index as i" class="table border text-center"> 
+        <td>{{i+1}}</td>
         <td>{{data.id}}</td>
         <td>{{data.firstname+" "+data.lastname}}</td>
         <td>{{data.email}}</td>
         <td>{{data.departmentId}}</td>
         <td>{{data.roleId}}</td>
+        <td><button class=" btn btn-danger" (click)="deleteEmployee(data)"><i class="bi bi-trash3-fill"></i></button></td>
       </tr>
     </table>
   </div>
