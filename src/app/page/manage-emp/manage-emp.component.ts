@@ -31,7 +31,7 @@ export class ManageEmpComponent {
       }
     )
     Swal.fire({
-      title: "Employee Add Successf!",
+      title: "Employee Add Success!",
       text: "You clicked the button!",
       icon: "success"
     });

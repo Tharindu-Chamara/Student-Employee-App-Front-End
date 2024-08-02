@@ -1,29 +1,85 @@
 <app-nav></app-nav>
 <div class="row">
-  <h1 class="text-center bg-info  p-3"> View All Employee!</h1>
+  <h1 class="text-center bg-black text-white  p-3"> View All Employee!</h1>
 </div>
+
 
 <div class="container bg-grey">
   <div class="row">
     <table class="table border">
       <tr class="table border bg-black text-center text-white">
-        <th>Count</th>
+       <th>Count</th>
         <th>Id</th>
         <th>Name</th>
         <th>Email</th>
         <th>Department</th>
         <th>Role</th>
-        <th>Delete</th>
+        <th></th>
+        <th></th>
       </tr>
-      <tr *ngFor="let data of employeeList;index as i" class="table border text-center"> 
+      <tr *ngFor="let employeeData of employeeList;index as i" class="table border text-center">
         <td>{{i+1}}</td>
-        <td>{{data.id}}</td>
-        <td>{{data.firstname+" "+data.lastname}}</td>
-        <td>{{data.email}}</td>
-        <td>{{data.departmentId}}</td>
-        <td>{{data.roleId}}</td>
-        <td><button class=" btn btn-danger" (click)="deleteEmployee(data)"><i class="bi bi-trash3-fill"></i></button></td>
+        <td>{{employeeData.id}}</td>
+        <td>{{employeeData.firstname+" "+employeeData.lastname}}</td>
+        <td>{{employeeData.email}}</td>
+        <td>{{employeeData.departmentId}}</td>
+        <td>{{employeeData.roleId}}</td>
+        <td>
+          <button class=" btn btn-danger" (click)="deleteEmployee(employeeData)"><i class="bi bi-trash3-fill"></i></button>
+        </td>
+        <td>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            data-bs-whatever="@mdo" (click)="updateEmployee(employeeData)"><i class="bi bi-pencil-square"><b>Update</b></i></button>
+        </td>
       </tr>
     </table>
+    <!-------------------------------------------------------------------------------->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Update Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-id" class="col-form-label">Id:</label>
+                <input type="text" class="form-control" id="recipient-id" [(ngModel)]="selectedEmployee.id" name="id" disabled="">
+              </div>
+
+              <div class="mb-3">
+                <label for="recipient-firstname" class="col-form-label">First Name:</label>
+                <input type="text" class="form-control" id="recipient-firstname" [(ngModel)]="selectedEmployee.firstname" name="firstname">
+              </div>
+
+              <div class="mb-3">
+                <label for="recipient-lastname" class="col-form-label">Last Name:</label>
+                <input type="text" class="form-control" id="recipient-lastname"[(ngModel)]="selectedEmployee.lastname" name="lastname">
+              </div>
+
+              <div class="mb-3">
+                <label for="recipient-email" class="col-form-label">Email:</label>
+                <input type="text" class="form-control" id="recipient-email" [(ngModel)]="selectedEmployee.email" name="email">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-department" class="col-form-label">Department Id:</label>
+                <input type="text" class="form-control" id="recipient-department" [(ngModel)]="selectedEmployee.departmentId" name="departmentId" >
+              </div>
+              <div class="mb-3">
+                <label for="recipient-Role" class="col-form-label">Role Id:</label>
+                <input type="text" class="form-control" id="recipient-Role"[(ngModel)]="selectedEmployee.roleId" name="Role">
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+             <button type="button" class="btn btn-primary" (click)="saveUpdateEmployee()">Update Data</button> 
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
